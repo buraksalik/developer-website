@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Busahub Studio</title>
+  <title>BuSahub Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -42,10 +42,19 @@
       margin-top: 50px;
     }
     .apps a {
-      display: block;
-      margin-top: 10px;
-      color: #4da3ff;
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #4da3ff;
+      color: #fff;
+      border-radius: 8px;
       text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.3s;
+      margin-right: 10px;
+    }
+    .apps a:hover {
+      background-color: #1a8cff;
     }
     footer {
       margin-top: 80px;
@@ -65,7 +74,7 @@
 
 <div class="container">
   <div class="top">
-    <strong>Busahub Studio</strong>
+    <strong>BuSahub Studio</strong>
     <div class="lang">
       <button onclick="setLang('tr')">TR</button>
       <button onclick="setLang('en')">EN</button>
@@ -75,7 +84,7 @@
   <div id="content"></div>
 
   <footer>
-    © 2025 Busahub Studio  
+    © 2025 BuSahub Studio  
     <br><br>
     <a href="privacy.html">Privacy Policy</a>
     <a href="support.html">App Support</a>
@@ -87,7 +96,7 @@ const data = {
   tr: `
     <h1>Mobil Uygulama & Oyun Geliştirme</h1>
     <p>
-      Busahub Studio, modern mobil uygulamalar ve oyunlar geliştiren
+      BuSahub Studio, modern mobil uygulamalar ve oyunlar geliştiren
       bağımsız bir yazılım stüdyosudur.  
       iOS ve Android platformları için performans, sadelik ve kalite
       odaklı çözümler üretir.
@@ -96,8 +105,8 @@ const data = {
     <div class="section">
       <h2>Uygulamalarımız</h2>
       <div class="apps">
-        <a href="#" target="_blank">• Yakında – App Store</a>
-        <a href="#" target="_blank">• Yakında – Google Play</a>
+        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">Tıkla – App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">Tıkla – Google Play</a>
       </div>
     </div>
 
@@ -109,7 +118,7 @@ const data = {
   en: `
     <h1>Mobile App & Game Development</h1>
     <p>
-      Busahub Studio is an independent software studio focused on
+      BuSahub Studio is an independent software studio focused on
       building high-quality mobile applications and games.
       We create clean, performant solutions for iOS and Android platforms.
     </p>
@@ -117,8 +126,8 @@ const data = {
     <div class="section">
       <h2>Our Apps</h2>
       <div class="apps">
-        <a href="#" target="_blank">• Coming Soon – App Store</a>
-        <a href="#" target="_blank">• Coming Soon – Google Play</a>
+        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">Click – App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">Click – Google Play</a>
       </div>
     </div>
 
