@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BuSahub Studio</title>
+  <title>Busahub Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -49,7 +49,8 @@
       margin-top: 50px;
     }
     .apps a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 10px 16px;
       background-color: #4da3ff;
       color: #fff;
@@ -59,6 +60,14 @@
       margin-top: 10px;
       transition: background 0.3s;
       margin-right: 10px;
+    }
+    .apps a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    .apps a span {
+      margin-right: 6px;
     }
     .apps a:hover {
       background-color: #1a8cff;
@@ -113,8 +122,14 @@ const data = {
     <div class="section">
       <h2>Uygulamalarımız</h2>
       <div class="apps">
-        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">Tıkla – App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">Tıkla – Google Play</a>
+        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
+          <img src="appicon.png" alt="App Icon">
+          <span>Tesbihat Pro</span>– Tıkla
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
+          <img src="appicon.png" alt="App Icon">
+          <span>Tesbihat Pro</span>– Tıkla
+        </a>
       </div>
     </div>
 
@@ -134,8 +149,14 @@ const data = {
     <div class="section">
       <h2>Our Apps</h2>
       <div class="apps">
-        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">Click – App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">Click – Google Play</a>
+        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
+          <img src="appicon.png" alt="App Icon">
+          <span>Tesbihat Pro</span>– Click
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
+          <img src="appicon.png" alt="App Icon">
+          <span>Tesbihat Pro</span>– Click
+        </a>
       </div>
     </div>
 
