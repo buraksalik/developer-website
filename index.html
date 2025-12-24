@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BuSahub Studio</title>
+  <title>Busahub Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -16,9 +16,16 @@
       margin: auto;
       padding: 40px 20px;
     }
+    .main-title {
+      font-size: 64px;
+      text-align: center;
+      margin: 40px 0 20px 0;
+      color: #4da3ff;
+      font-weight: bold;
+    }
     .top {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
     }
     .lang button {
@@ -73,8 +80,9 @@
 <body>
 
 <div class="container">
+  <h1 class="main-title">Busahub Studio</h1>
+
   <div class="top">
-    <strong>BuSahub Studio</strong>
     <div class="lang">
       <button onclick="setLang('tr')">TR</button>
       <button onclick="setLang('en')">EN</button>
@@ -84,7 +92,7 @@
   <div id="content"></div>
 
   <footer>
-    © 2025 BuSahub Studio  
+    © 2025 Busahub Studio  
     <br><br>
     <a href="privacy.html">Privacy Policy</a>
     <a href="support.html">App Support</a>
@@ -96,7 +104,7 @@ const data = {
   tr: `
     <h1>Mobil Uygulama & Oyun Geliştirme</h1>
     <p>
-      BuSahub Studio, modern mobil uygulamalar ve oyunlar geliştiren
+      Busahub Studio, modern mobil uygulamalar ve oyunlar geliştiren
       bağımsız bir yazılım stüdyosudur.  
       iOS ve Android platformları için performans, sadelik ve kalite
       odaklı çözümler üretir.
@@ -118,7 +126,7 @@ const data = {
   en: `
     <h1>Mobile App & Game Development</h1>
     <p>
-      BuSahub Studio is an independent software studio focused on
+      Busahub Studio is an independent software studio focused on
       building high-quality mobile applications and games.
       We create clean, performant solutions for iOS and Android platforms.
     </p>
