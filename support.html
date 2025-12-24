@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>App Support – Tesbihat Pro</title>
@@ -13,26 +13,28 @@
       max-width: 900px;
       margin: auto;
     }
-    h1, h2 {
-      color: #ffffff;
+    h1, h2 { color: #ffffff; }
+    p, li { line-height: 1.6; }
+    ul { padding-left: 20px; }
+    a { color: #4da3ff; text-decoration: none; }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    p, li {
-      line-height: 1.6;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #4da3ff;
-      text-decoration: none;
-    }
-    hr {
-      margin: 40px 0;
-      border: 0;
-      border-top: 1px solid #333;
+    .lang button {
+      background: none;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 6px 12px;
+      margin-left: 8px;
+      cursor: pointer;
+      border-radius: 6px;
     }
     footer {
-      margin-top: 40px;
+      margin-top: 50px;
+      border-top: 1px solid #333;
+      padding-top: 20px;
       font-size: 14px;
       color: #888;
     }
@@ -40,53 +42,98 @@
 </head>
 <body>
 
-<h1>Hakkımızda</h1>
+<div class="top">
+  <h1>Tesbihat Pro</h1>
+  <div class="lang">
+    <button onclick="setLang('tr')">TR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</div>
 
-<p>
-<b>Tesbihat Pro</b>, ibadetlerinizi daha düzenli ve keyifli hale getiren
-kapsamlı bir dini uygulamadır.
-</p>
-
-<p>
-Namaz vakitleri, ezan saatleri, tesbihat sayacı, kıble pusulası ve daha birçok
-özellik ile dini yaşamınızı kolaylaştırmayı amaçlıyoruz.
-</p>
-
-<h2>Özellikler</h2>
-<ul>
-  <li>Kur’an-ı Kerim okuma</li>
-  <li>Dijital tesbihat sayacı</li>
-  <li>Namaz vakitleri ve ezan saatleri</li>
-  <li>Kıble yönü bulma</li>
-  <li>Dualar ve zikirler</li>
-  <li>Kullanıcı dostu arayüz</li>
-</ul>
-
-<h2>İletişim</h2>
-
-<p>
-📧 <b>E-posta:</b> <a href="mailto:burkkslkk@gmail.com">burkkslkk@gmail.com</a>
-</p>
-
-<p>
-📝 <b>Destek Formu:</b><br>
-<a href="https://forms.gle/KBQ9VqCVH5K7Hsb26" target="_blank">
-https://forms.gle/KBQ9VqCVH5K7Hsb26
-</a>
-</p>
-
-<p>
-🔒 <b>Gizlilik Politikası:</b><br>
-<a href="https://sites.google.com/view/tesbihatpro" target="_blank">
-https://sites.google.com/view/tesbihatpro
-</a>
-</p>
-
-<hr>
+<div id="content"></div>
 
 <footer>
 © 2025 Tesbihat Pro. Tüm hakları saklıdır.
 </footer>
+
+<script>
+const data = {
+  tr: `
+    <h2>Hakkımızda</h2>
+    <p>
+      Tesbihat Pro, ibadetlerinizi daha düzenli ve keyifli hale getiren
+      kapsamlı bir dini uygulamadır.
+    </p>
+    <p>
+      Namaz vakitleri, ezan saatleri, tesbihat sayacı, kıble pusulası ve
+      daha birçok özellik ile dini yaşamınızı kolaylaştırmayı amaçlıyoruz.
+    </p>
+
+    <h2>Özellikler</h2>
+    <ul>
+      <li>Kur’an-ı Kerim okuma</li>
+      <li>Dijital tesbihat sayacı</li>
+      <li>Namaz vakitleri ve ezan saatleri</li>
+      <li>Kıble yönü bulma</li>
+      <li>Dualar ve zikirler</li>
+      <li>Kullanıcı dostu arayüz</li>
+    </ul>
+
+    <h2>İletişim</h2>
+    <p>📧 E-posta: <b>burkkslkk@gmail.com</b></p>
+    <p>
+      📝 Destek Formu:<br>
+      <a href="https://forms.gle/KBQ9VqCVH5K7Hsb26" target="_blank">
+        https://forms.gle/KBQ9VqCVH5K7Hsb26
+      </a>
+    </p>
+    <p>
+      🔒 Gizlilik Politikası:<br>
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+  `,
+  en: `
+    <h2>About</h2>
+    <p>
+      Tesbihat Pro is a comprehensive Islamic application designed to
+      make your worship more organized and enjoyable.
+    </p>
+    <p>
+      It provides prayer times, adhan times, digital tasbih counter,
+      qibla compass, and many other features.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Qur’an reading</li>
+      <li>Digital tasbih counter</li>
+      <li>Prayer times and adhan</li>
+      <li>Qibla direction</li>
+      <li>Duas and dhikr</li>
+      <li>User-friendly interface</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>📧 Email: <b>burkkslkk@gmail.com</b></p>
+    <p>
+      📝 Support Form:<br>
+      <a href="https://forms.gle/KBQ9VqCVH5K7Hsb26" target="_blank">
+        https://forms.gle/KBQ9VqCVH5K7Hsb26
+      </a>
+    </p>
+    <p>
+      🔒 Privacy Policy:<br>
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+  `
+};
+
+function setLang(lang) {
+  document.getElementById("content").innerHTML = data[lang];
+}
+
+setLang("tr");
+</script>
 
 </body>
 </html>
