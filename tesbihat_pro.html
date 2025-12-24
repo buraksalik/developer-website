@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tesbihat Pro - BuSa Hub Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Tesbihat Pro - İbadetlerinizi daha düzenli ve keyifli hale getiren kapsamlı dini uygulama">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+            background: #FFF8E7;
+            min-height: 100vh;
+            color: #000000;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .app-header {
+            text-align: center;
+            margin: 60px 0 40px 0;
+        }
+
+        .app-icon {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 0 auto 30px auto;
+            display: block;
+        }
+
+        .app-title {
+            font-size: 48px;
+            color: #000000;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .app-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #000000;
+            margin: 30px 0;
+        }
+
+        .features-section {
+            margin: 50px 0;
+        }
+
+        .features-title {
+            font-size: 32px;
+            color: #000000;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .feature-item {
+            background: #E6DFD0;
+            border-left: 4px solid #16502d;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #000000;
+        }
+
+        .closing-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #000000;
+            margin: 40px 0;
+            padding: 30px;
+            background: #E6DFD0;
+            border-radius: 12px;
+            border: 2px solid #16502d;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .store-buttons {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .store-buttons a {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .store-buttons img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .store-buttons img:hover {
+            transform: scale(1.05);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #000000;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: #333333;
+        }
+
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid #d4d4d4;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #000000;
+            text-align: center;
+        }
+
+        footer a {
+            color: #000000;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #16502d;
+        }
+
+        .top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .lang button {
+            background: none;
+            border: 1px solid #000;
+            color: #000;
+            padding: 6px 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .lang button:hover {
+            background: #E6DFD0;
+        }
+
+        .lang button.active {
+            background: #000;
+            color: #FFF8E7;
+            font-weight: bold;
+        }
+
+        .screenshot-gallery {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            margin: 40px 0;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .screenshot-gallery::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .screenshot-item {
+            display: inline-block;
+            height: 400px;
+            margin-right: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top">
+            <div class="lang">
+                <button onclick="setLang('tr')">TR</button>
+                <button onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+
+        <div id="content"></div>
+
+        <footer>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">App Support</a>
+            <br><br>
+            © 2025 BuSa Hub Studio
+        </footer>
+    </div>
+
+
+    <script>
+        const data = {
+            tr: `
+        <div class="app-header">
+            <img src="assets/tesbihat-pro/tesbihat-pro.png" alt="Tesbihat Pro" class="app-icon">
+            <h1 class="app-title">Tesbihat Pro</h1>
+        </div>
+
+        <div class="screenshot-gallery">
+            <img src="assets/tesbihat-pro/1.png" alt="Screenshot 1" class="screenshot-item">
+            <img src="assets/tesbihat-pro/2.png" alt="Screenshot 2" class="screenshot-item">
+            <img src="assets/tesbihat-pro/3.png" alt="Screenshot 3" class="screenshot-item">
+            <img src="assets/tesbihat-pro/4.png" alt="Screenshot 4" class="screenshot-item">
+            <img src="assets/tesbihat-pro/5.png" alt="Screenshot 5" class="screenshot-item">
+            <img src="assets/tesbihat-pro/6.png" alt="Screenshot 6" class="screenshot-item">
+            <img src="assets/tesbihat-pro/7.png" alt="Screenshot 7" class="screenshot-item">
+            <img src="assets/tesbihat-pro/8.png" alt="Screenshot 8" class="screenshot-item">
+            <img src="assets/tesbihat-pro/9.png" alt="Screenshot 9" class="screenshot-item">
+            <img src="assets/tesbihat-pro/10.png" alt="Screenshot 10" class="screenshot-item">
+        </div>
+
+        <p class="app-description">
+            Tesbihat Pro, ibadetlerinizi daha düzenli ve keyifli hale getiren kapsamlı bir dini uygulamadır.
+        </p>
+
+        <div class="features-section">
+            <h2 class="features-title">Özellikler</h2>
+
+            <div class="feature-item">
+                <div class="feature-name">Kur'an-ı Kerim</div>
+                <div class="feature-description">
+                    Arapça metin, Türkçe okunuş, Türkçe meal ve Renkli Tecvidlendirme ile kolay gezinme.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Tesbihat</div>
+                <div class="feature-description">
+                    Sesli ve titreşimli tesbih çekme özelliği ile ibadetlerinizi kolayca sayın.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Zikirmatik</div>
+                <div class="feature-description">
+                    Kendi zikirlerinizi oluşturabilir, sesli ve titreşimli olarak takip edebilirsiniz; dilediğinizde
+                    kaydedebilirsiniz.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Namaz Vakitleri</div>
+                <div class="feature-description">
+                    Günlük namaz vakitlerini otomatik olarak görüntüleyin ve hatırlatıcılar ile kaçırmayın.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Kıble Yönü</div>
+                <div class="feature-description">
+                    Anlık olarak doğru kıble yönünü öğrenin.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Yakın Camiler</div>
+                <div class="feature-description">
+                    2 km yarıçapındaki camileri harita üzerinde görün.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Dini Günler</div>
+                <div class="feature-description">
+                    Önemli dini günleri ve özel ibadetleri takip edin.
+                </div>
+            </div>
+        </div>
+
+        <div class="closing-text">
+            Tesbihat Pro, ibadetlerinizi kolaylaştırmak ve manevi hayatınızı desteklemek için tasarlanmıştır. Sesli
+            ve
+            titreşimli özelliklerle hem pratik hem de keyifli bir deneyim sunar. <strong>Tüm özellikler bir arada,
+                tek
+                uygulamada!</strong>
+        </div>
+
+        <div class="store-buttons">
+            <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
+                <img src="assets/tesbihat-pro/appstore.svg" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
+                <img src="assets/tesbihat-pro/playstore.svg" alt="Google Play">
+            </a>
+        </div>
+    `,
+            en: `
+        <div class="app-header">
+            <img src="assets/tesbihat-pro/tesbihat-pro.png" alt="Tesbihat Pro" class="app-icon">
+            <h1 class="app-title">Tesbihat Pro</h1>
+        </div>
+
+        <div class="screenshot-gallery">
+            <img src="assets/tesbihat-pro/1.png" alt="Screenshot 1" class="screenshot-item">
+            <img src="assets/tesbihat-pro/2.png" alt="Screenshot 2" class="screenshot-item">
+            <img src="assets/tesbihat-pro/3.png" alt="Screenshot 3" class="screenshot-item">
+            <img src="assets/tesbihat-pro/4.png" alt="Screenshot 4" class="screenshot-item">
+            <img src="assets/tesbihat-pro/5.png" alt="Screenshot 5" class="screenshot-item">
+            <img src="assets/tesbihat-pro/6.png" alt="Screenshot 6" class="screenshot-item">
+            <img src="assets/tesbihat-pro/7.png" alt="Screenshot 7" class="screenshot-item">
+            <img src="assets/tesbihat-pro/8.png" alt="Screenshot 8" class="screenshot-item">
+            <img src="assets/tesbihat-pro/9.png" alt="Screenshot 9" class="screenshot-item">
+            <img src="assets/tesbihat-pro/10.png" alt="Screenshot 10" class="screenshot-item">
+        </div>
+
+        <p class="app-description">
+            Tesbihat Pro is a comprehensive religious application that makes your worship more organized and enjoyable.
+        </p>
+
+        <div class="features-section">
+            <h2 class="features-title">Features</h2>
+
+            <div class="feature-item">
+                <div class="feature-name">Holy Quran</div>
+                <div class="feature-description">
+                    Arabic text, Turkish pronunciation, Turkish translation, and colorful Tajweed for easy navigation.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Tasbih</div>
+                <div class="feature-description">
+                    Count your prayers easily with audio and vibration features.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Dhikr Counter</div>
+                <div class="feature-description">
+                    Create your own dhikr, track them with audio and vibration; save them whenever you want.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Prayer Times</div>
+                <div class="feature-description">
+                    Automatically view daily prayer times and never miss them with reminders.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Qibla Direction</div>
+                <div class="feature-description">
+                    Find the correct Qibla direction instantly.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Nearby Mosques</div>
+                <div class="feature-description">
+                    View mosques within a 2 km radius on the map.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Religious Days</div>
+                <div class="feature-description">
+                    Track important religious days and special worship.
+                </div>
+            </div>
+        </div>
+
+        <div class="closing-text">
+            Tesbihat Pro is designed to facilitate your worship and support your spiritual life. It offers both a practical and enjoyable experience with audio and vibration features. <strong>All features in one app!</strong>
+        </div>
+
+        <div class="store-buttons">
+            <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
+                <img src="assets/tesbihat-pro/appstore.svg" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
+                <img src="assets/tesbihat-pro/playstore.svg" alt="Google Play">
+            </a>
+        </div>
+    `
+        };
+
+        function setLang(lang) {
+            document.getElementById("content").innerHTML = data[lang];
+
+            // Update active button
+            document.querySelectorAll('.lang button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === lang.toUpperCase()) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        setLang("en");
+    </script>
+
+</body>
+
+</html>

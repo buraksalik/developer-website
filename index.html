@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Busahub Studio</title>
+  <title>BuSaHub Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      font-family: "Times New Roman", Times, serif;
       background: #0f0f0f;
       color: #ffffff;
     }
+
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
+
     .main-title {
+      font-family: 'Dancing Script', cursive;
       font-size: 64px;
+      font-weight: 700;
       text-align: center;
-      margin: 40px 0 20px 0;
-      color: #4da3ff;
-      font-weight: bold;
+      margin: 10px 0 5px 0;
+      color: #ff0000;
     }
+
+    .title-underline {
+      width: 400px;
+      height: 50px;
+      margin: -5px auto 10px auto;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
+
+    .title-underline svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .top {
       display: flex;
       justify-content: flex-end;
       align-items: center;
     }
+
     .lang button {
       background: none;
       border: 1px solid #444;
@@ -37,46 +71,82 @@
       cursor: pointer;
       border-radius: 6px;
     }
+
+    .lang button.active {
+      background: #4da3ff;
+      border-color: #4da3ff;
+      font-weight: bold;
+    }
+
     h1 {
       font-size: 42px;
       margin-top: 40px;
+      color: #000;
     }
+
     p {
       line-height: 1.6;
-      color: #cccccc;
+      color: #333;
     }
+
     .section {
       margin-top: 50px;
+    }
+
+    /* White background content area */
+    #content {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      margin-top: 40px;
+    }
+
+    #content h2 {
+      color: #000;
     }
 
     /* App Section */
     .app-section {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 15px;
       margin: 30px 0 50px 0;
     }
-    .app-info {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+
+    .app-icon-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s ease;
     }
+
+    .app-icon-button:hover {
+      transform: scale(1.05);
+    }
+
+    .app-icon-button:active {
+      transform: scale(0.98);
+    }
+
     .app-main-icon {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       border-radius: 20%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       object-fit: cover;
+      display: block;
     }
+
     .app-name {
       font-size: 24px;
       font-weight: bold;
-      color: #fff;
+      color: #000;
+      text-align: center;
     }
-    .store-buttons a img {
-      height: 50px;
-      margin-right: 10px;
-    }
+
+
 
     footer {
       margin-top: 80px;
@@ -84,7 +154,9 @@
       padding-top: 20px;
       font-size: 14px;
       color: #888;
+      text-align: center;
     }
+
     footer a {
       color: #888;
       text-decoration: none;
@@ -92,95 +164,82 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1 class="main-title">Busahub Studio</h1>
+  <div class="container">
+    <h1 class="main-title">BuSa Hub Studios</h1>
 
-  <div class="top">
-    <div class="lang">
-      <button onclick="setLang('tr')">TR</button>
-      <button onclick="setLang('en')">EN</button>
+    <div class="top">
+      <div class="lang">
+        <button onclick="setLang('tr')">TR</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
     </div>
+
+    <div id="content"></div>
+
+    <footer>
+      © 2025 BuSa Hub Studio
+    </footer>
   </div>
 
-  <div id="content"></div>
-
-  <footer>
-    © 2025 Busahub Studio  
-    <br><br>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="support.html">App Support</a>
-  </footer>
-</div>
-
-<script>
-const data = {
-  tr: `
+  <script>
+    const data = {
+      tr: `
     <h1>Mobil Uygulama & Oyun Geliştirme</h1>
     <p>
-      Busahub Studio, modern mobil uygulamalar ve oyunlar geliştiren
+      BuSa Hub Studio, modern mobil uygulamalar ve oyunlar geliştiren
       bağımsız bir yazılım stüdyosudur.  
       iOS ve Android platformları için performans, sadelik ve kalite
       odaklı çözümler üretir.
     </p>
 
-    <div class="section app-section">
-      <div class="app-info">
-        <img src="assets/icons/icon.png" alt="App Icon" class="app-main-icon">
-        <span class="app-name">Tesbihat Pro</span>
-      </div>
-      <div class="store-buttons">
-        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
-          <img src="assets/icons/appstore.svg" alt="App Store">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
-          <img src="assets/icons/playstore.svg" alt="Google Play">
-        </a>
-      </div>
-    </div>
-
     <div class="section">
-      <h2>İletişim</h2>
-      <p>📧 burkkslkk@gmail.com</p>
+      <h2>Uygulamalar</h2>
+      <div class="app-section">
+        <a href="tesbihat_pro.html" class="app-icon-button">
+          <img src="assets/home/icons/icon.png" alt="App Icon" class="app-main-icon">
+        </a>
+        <div class="app-name">Tesbihat Pro</div>
+      </div>
     </div>
   `,
-  en: `
+      en: `
     <h1>Mobile App & Game Development</h1>
     <p>
-      Busahub Studio is an independent software studio focused on
+      BuSahub Studio is an independent software studio focused on
       building high-quality mobile applications and games.
       We create clean, performant solutions for iOS and Android platforms.
     </p>
 
-    <div class="section app-section">
-      <div class="app-info">
-        <img src="assets/icons/icon.png" alt="App Icon" class="app-main-icon">
-        <span class="app-name">Tesbihat Pro</span>
-      </div>
-      <div class="store-buttons">
-        <a href="https://apps.apple.com/tr/app/tesbihat-pro/id6756233128?l=tr" target="_blank">
-          <img src="assets/icons/appstore.svg" alt="App Store">
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.velora.tesbihat" target="_blank">
-          <img src="assets/icons/playstore.svg" alt="Google Play">
-        </a>
-      </div>
-    </div>
-
     <div class="section">
-      <h2>Contact</h2>
-      <p>📧 burkkslkk@gmail.com</p>
+      <h2>Applications</h2>
+      <div class="app-section">
+        <a href="tesbihat_pro.html" class="app-icon-button">
+          <img src="assets/home/icons/icon.png" alt="App Icon" class="app-main-icon">
+        </a>
+        <div class="app-name">Tesbihat Pro</div>
+      </div>
     </div>
   `
-};
+    };
 
-function setLang(lang) {
-  document.getElementById("content").innerHTML = data[lang];
-}
+    function setLang(lang) {
+      document.getElementById("content").innerHTML = data[lang];
 
-setLang("en");
-</script>
+      // Update active button
+      document.querySelectorAll('.lang button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === lang.toUpperCase()) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    setLang("en");
+  </script>
 
 </body>
+
 </html>
