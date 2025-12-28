@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FluxCell - BuSa Hub Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="FluxCell - Sayıların ve Stratejinin Neon Işıltısı! Zekanızı zorlayacak mekanikler ve stratejik derinlik.">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #050510;
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .app-header {
+            text-align: center;
+            margin: 0;
+        }
+
+        .app-icon {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            /* Fixed height for crop effect */
+            margin: 0 auto 0 auto;
+            display: block;
+            border-radius: 20px;
+            object-fit: cover;
+            /* Prevents distortion */
+            object-position: center;
+            /* Centers the image */
+        }
+
+        .app-title {
+            font-size: 56px;
+            color: #ffffff;
+            font-weight: 800;
+            margin: -30px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+            background: linear-gradient(to right, #ffffff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .app-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #cfcfcf;
+            margin: 0 0 30px 0;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-section {
+            margin: 60px 0;
+        }
+
+        .features-title {
+            font-size: 36px;
+            color: #00ffff;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00ffff;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .feature-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #00ffff;
+            margin-bottom: 12px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #dddddd;
+        }
+
+        .element-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .element-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .element-list li:before {
+            content: '➤';
+            color: #00ffff;
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 4px;
+        }
+
+        .closing-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #ffffff;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .store-buttons {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0.5;
+            /* Placeholder styling since no links provided */
+        }
+
+        .store-buttons a {
+            display: inline-block;
+            margin: 10px;
+            pointer-events: none;
+            /* Disable clicks for now */
+        }
+
+        .store-buttons img {
+            height: 60px;
+            filter: grayscale(100%);
+        }
+
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #00ffff;
+        }
+
+        .top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .lang button {
+            background: none;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .lang button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #666;
+        }
+
+        .lang button.active {
+            background: #00ffff;
+            color: #000;
+            font-weight: bold;
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top">
+            <div class="lang">
+                <button onclick="setLang('tr')">TR</button>
+                <button onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+
+        <div id="content"></div>
+
+
+
+    </div>
+
+
+    <script>
+        const data = {
+            tr: `
+        <div class="app-header">
+            <img src="../../../fluxcell/fluxcell.png" alt="FluxCell Logo" class="app-icon">
+            <h1 class="app-title">FluxCell</h1>
+        </div>
+
+        <p class="app-description">
+            <strong>Sayıların ve Stratejinin Neon Işıltısı!</strong><br><br>
+            Sıradan bulmaca oyunlarından sıkıldınız mı? FluxCell, zekanızı zorlayacak mekanikleri, stratejik derinliği ve büyüleyici fütüristik tasarımıyla sizi bekliyor!
+        </p>
+
+        <div class="features-section">
+            <h2 class="features-title">Özellikler</h2>
+
+            <div class="feature-item">
+                <div class="feature-name">Oyunun Özü Nedir?</div>
+                <div class="feature-description">
+                    FluxCell, klasik sayı birleştirme türüne modern bir dokunuş getiriyor. Amacınız basit: Aynı değere sahip hücreleri birleştirerek onları yükseltmek ve bölüm hedeflerine ulaşmak. Ancak dikkat; her hamle stratejik bir karar gerektirir!
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Sonsuz Strateji</div>
+                <div class="feature-description">
+                    En az 4 hücreyi birleştirerek kombolar yapın ve tahtaya hükmedin.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Özel Elementler</div>
+                <div class="feature-description">
+                    Sadece sayılarla değil, doğanın güçleriyle de mücadele edin!
+                    <ul class="element-list">
+                        <li><strong>🔥 Ateş:</strong> Engelleri yakın.</li>
+                        <li><strong>❄️ Buz:</strong> Dondurucu etkisine dikkat edin, eritmek için stratejik birleştirmeler yapın.</li>
+                        <li><strong>🪨 Taş:</strong> Yolunuza çıkan blokları kırmak için yanlarında birleştirmeler yapın.</li>
+                        <li><strong>💣 Bomba:</strong> Süre dolmadan birleştirerek patlamayı önleyin ve alanı temizleyin!</li>
+                        <li><strong>🔒 Kilitli Hücreler:</strong> Doğru hamlelerle veya altınlarınızı kullanarak kilitleri açın.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">125+ Zorlu Bölüm</div>
+                <div class="feature-description">
+                    Başlangıçtan ustalığa uzanan, giderek zorlaşan ve çeşitlenen yüzlerce bölüm. Özel Boss Seviyeleri ile yeteneklerinizi kanıtlayın!
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Görsel Şölen</div>
+                <div class="feature-description">
+                    Koyu modun zarafeti, neon renklerin canlılığı ve akıcı animasyonlarla göz alıcı bir deneyim.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Zorluk Seviyeleri</div>
+                <div class="feature-description">
+                    Kendinize güveniyor musunuz? Kolay, Normal ve Zor modlarda oynayarak her bölümden 3 yıldız toplamaya çalışın.
+                </div>
+            </div>
+        </div>
+
+        <div class="closing-text">
+            Zihninizi açın, akışa kapılın ve <strong>FluxCell</strong> dünyasında rekorları alt üst edin! 🚀
+        </div>
+        
+        <!-- Store buttons placeholder -->
+        <div class="store-buttons">
+            <p style="color: #666; font-size: 14px; margin-bottom: 10px;">(Yakında Mağazalarda)</p>
+             <!-- 
+            <a href="#" target="_blank"><img src="assets/tesbihat-pro/appstore.svg" alt="App Store"></a>
+            <a href="#" target="_blank"><img src="assets/tesbihat-pro/playstore.svg" alt="Google Play"></a>
+             -->
+        </div>
+
+        <footer>
+            <a href="../../../fluxcell/privacy.html">Gizlilik Politikası</a>
+            <a href="../../../fluxcell/support.html">Destek</a>
+            <br><br>
+            © 2025 BuSa Hub Studio
+        </footer>
+    `,
+            en: `
+        <div class="app-header">
+            <img src="../../../fluxcell/fluxcell.png" alt="FluxCell Logo" class="app-icon">
+            <h1 class="app-title">FluxCell</h1>
+        </div>
+
+        <p class="app-description">
+            <strong>Neon Glow of Numbers and Strategy!</strong><br><br>
+            Bored of ordinary puzzle games? FluxCell awaits you with mechanics that challenge your intellect, strategic depth, and a mesmerizing futuristic design!
+        </p>
+
+        <div class="features-section">
+            <h2 class="features-title">Features</h2>
+
+            <div class="feature-item">
+                <div class="feature-name">The Essence of the Game</div>
+                <div class="feature-description">
+                    FluxCell brings a modern touch to the classic number merging genre. Your goal is simple: Merge cells of the same value to upgrade them and reach level targets. But be careful; every move requires a strategic decision!
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Infinite Strategy</div>
+                <div class="feature-description">
+                    Dominate the board by making combos with matches of at least 4 cells.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Special Elements</div>
+                <div class="feature-description">
+                    Battle not just with numbers, but with forces of nature!
+                    <ul class="element-list">
+                        <li><strong>🔥 Fire:</strong> Burn the obstacles.</li>
+                        <li><strong>❄️ Ice:</strong> Beware of the freezing effect; make strategic merges to melt it.</li>
+                        <li><strong>🪨 Stone:</strong> Make merges next to blocks to break them.</li>
+                        <li><strong>💣 Bomb:</strong> Merge before time runs out to prevent explosion and clear the area!</li>
+                        <li><strong>🔒 Locked Cells:</strong> Unlock them with correct moves or by using your gold.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">125+ Challenging Levels</div>
+                <div class="feature-description">
+                    Hundreds of levels ranging from beginner to mastery, getting harder and more diverse. Prove your skills with Special Boss Levels!
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Visual Feast</div>
+                <div class="feature-description">
+                    An eye-catching experience with the elegance of dark mode, vibrancy of neon colors, and fluid animations.
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-name">Difficulty Levels</div>
+                <div class="feature-description">
+                    Do you trust yourself? Try to collect 3 stars in every level by playing in Easy, Normal, and Hard modes.
+                </div>
+            </div>
+        </div>
+
+        <div class="closing-text">
+            Open your mind, go with the flow, and break records in the world of <strong>FluxCell</strong>! 🚀
+        </div>
+
+        <!-- Store buttons placeholder -->
+        <div class="store-buttons">
+            <p style="color: #666; font-size: 14px; margin-bottom: 10px;">(Coming Soon to Stores)</p>
+        </div>
+
+        <footer>
+            <a href="../../../fluxcell/privacy.html">Privacy Policy</a>
+            <a href="../../../fluxcell/support.html">Support</a>
+            <br><br>
+            © 2025 BuSa Hub Studio
+        </footer>
+    `
+        };
+
+        function setLang(lang) {
+            document.getElementById("content").innerHTML = data[lang];
+
+            document.querySelectorAll('.lang button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === lang.toUpperCase()) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Set default based on browser or just default to TR since input was TR
+        setLang("en");
+    </script>
+
+</body>
+
+</html>

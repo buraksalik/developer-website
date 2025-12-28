@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FluxCell - Support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #050510;
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #00ffff;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0 40px 0;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        }
+
+        .top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .lang button {
+            background: none;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 6px 12px;
+            margin-left: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .lang button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang button.active {
+            background: #00ffff;
+            color: #000;
+            font-weight: bold;
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00ffff;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section-card h2 {
+            margin-bottom: 15px;
+            color: #00ffff;
+        }
+
+        .section-card p {
+            color: #cfcfcf;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #0a0a20;
+            color: #fff;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #00ffff;
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            color: #00ffff;
+            font-size: 16px;
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        button.submit-btn:hover {
+            background-color: #00ffff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .custom-form {
+            margin-top: 20px;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .form-message.success {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            border: 1px solid #00ffff;
+        }
+
+        .form-message.error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff4444;
+            border: 1px solid #ff4444;
+        }
+
+        footer {
+            margin-top: 80px;
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #00ffff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top">
+            <div class="lang">
+                <button onclick="setLang('tr')">TR</button>
+                <button onclick="setLang('en')">EN</button>
+            </div>
+        </div>
+
+        <h1 id="main-title">App Support</h1>
+
+        <div id="content"></div>
+
+        <!-- Optional: Back link similar to privacy page, commenting out if not desired as per previous instruction for privacy page
+    <a href="../assets/home/screen/fluxcell.html" class="back-link">← Geri Dön / Go Back</a>
+    -->
+
+        <footer>
+            © 2025 BuSa Hub Studio
+        </footer>
+    </div>
+
+    <script>
+        const data = {
+            tr: `
+      <div class="section-card">
+        <h2>Destek Talebi Gönder</h2>
+        <p>Sorularınız veya geri bildirimleriniz için formu doldurun.</p>
+        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
+          <label for="name">Adınız *</label>
+          <input type="text" id="name" name="entry.413142590" required placeholder="Adınız Soyadınız">
+
+          <label for="email">E-posta Adresiniz *</label>
+          <input type="email" id="email" name="entry.357724947" required placeholder="ornek@email.com">
+
+          <label for="message">Mesajınız *</label>
+          <textarea id="message" name="entry.533240552" rows="6" required placeholder="Mesajınızı buraya yazın..."></textarea>
+
+          <button type="submit" class="submit-btn">Gönder</button>
+          <div id="formMessage" class="form-message" style="display:none;"></div>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+      </div>
+    `,
+            en: `
+      <div class="section-card">
+        <h2>Send Support Request</h2>
+        <p>Fill out the form with your questions or feedback.</p>
+        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="entry.413142590" required placeholder="Your Full Name">
+
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="entry.357724947" required placeholder="example@email.com">
+
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="entry.533240552" rows="6" required placeholder="Write your message here..."></textarea>
+
+          <button type="submit" class="submit-btn">Send</button>
+          <div id="formMessage" class="form-message" style="display:none;"></div>
+        </form>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+      </div>
+    `
+        };
+
+        function setLang(lang) {
+            document.getElementById("content").innerHTML = data[lang];
+
+            const heading = document.getElementById("main-title");
+            heading.textContent = (lang === 'tr') ? 'Uygulama Desteği' : 'App Support';
+
+            document.querySelectorAll('.lang button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === lang.toUpperCase()) btn.classList.add('active');
+            });
+
+            // Attach form submit handler
+            const form = document.getElementById('supportForm');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    const formMessage = document.getElementById('formMessage');
+                    const submitBtn = form.querySelector('.submit-btn');
+
+                    setTimeout(function () {
+                        formMessage.textContent = lang === 'tr' ?
+                            'Mesajınız başarıyla gönderildi! Teşekkür ederiz.' :
+                            'Your message has been sent successfully! Thank you.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        form.reset();
+                    }, 1000);
+                });
+            }
+        }
+
+        setLang("en");
+    </script>
+
+</body>
+
+</html>
