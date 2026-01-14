@@ -145,20 +145,20 @@
         .store-buttons {
             text-align: center;
             margin: 50px 0;
-            opacity: 0.5;
-            /* Placeholder styling since no links provided */
         }
 
         .store-buttons a {
             display: inline-block;
             margin: 10px;
-            pointer-events: none;
-            /* Disable clicks for now */
         }
 
         .store-buttons img {
             height: 60px;
-            filter: grayscale(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .store-buttons img:hover {
+            transform: scale(1.05);
         }
 
         footer {
@@ -302,13 +302,13 @@
             Zihninizi açın, akışa kapılın ve <strong>FluxCell</strong> dünyasında rekorları alt üst edin! 🚀
         </div>
         
-        <!-- Store buttons placeholder -->
         <div class="store-buttons">
-            <p style="color: #666; font-size: 14px; margin-bottom: 10px;">(Yakında Mağazalarda)</p>
-             <!-- 
-            <a href="#" target="_blank"><img src="assets/tesbihat-pro/appstore.svg" alt="App Store"></a>
-            <a href="#" target="_blank"><img src="assets/tesbihat-pro/playstore.svg" alt="Google Play"></a>
-             -->
+            <a href="https://apps.apple.com/tr/app/fluxcell/id6757134440?l=tr" target="_blank">
+                <img src="../assets/fluxcell/appstore.svg" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.busahub.fluxcell" target="_blank">
+                <img src="../assets/fluxcell/playstore.svg" alt="Google Play">
+            </a>
         </div>
 
         <footer>
@@ -386,9 +386,13 @@
             Open your mind, go with the flow, and break records in the world of <strong>FluxCell</strong>! 🚀
         </div>
 
-        <!-- Store buttons placeholder -->
         <div class="store-buttons">
-            <p style="color: #666; font-size: 14px; margin-bottom: 10px;">(Coming Soon to Stores)</p>
+            <a href="https://apps.apple.com/tr/app/fluxcell/id6757134440?l=tr" target="_blank">
+                <img src="../assets/fluxcell/appstore.svg" alt="App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.busahub.fluxcell" target="_blank">
+                <img src="../assets/fluxcell/playstore.svg" alt="Google Play">
+            </a>
         </div>
 
         <footer>
