@@ -132,174 +132,260 @@
     const data = {
       tr: `
     <div class="section-card">
-      <p><strong>Son Güncelleme: 28 Aralık 2025</strong></p>
+      <p><strong>Son Güncelleme: Ocak 2025</strong></p>
     </div>
 
     <div class="section-card">
-      <h2>1. Giriş</h2>
+      <h2>1. GİRİŞ</h2>
       <p>
-        BuSa Hub Studio ("biz", "bize" veya "bizim") olarak, FluxCell oyununu ("Hizmet") kullanan oyuncularımızın gizliliğine ve güvenliğine büyük önem veriyoruz. Bu Gizlilik Politikası, Hizmetimizi kullandığınızda bilgilerinizin nasıl toplandığını, kullanıldığını ve paylaşıldığını açıklar.
+        BuSa Hub Studio ("Şirket", "biz", "bize" veya "bizim"), FluxCell mobil uygulamasını ("Uygulama" veya "Hizmet") işletmektedir. Bu Gizlilik Politikası, Uygulamamızı kullandığınızda bilgilerinizin nasıl toplandığını, kullanıldığını, ifşa edildiğini ve korunduğunu açıklar.
+      </p>
+      <p>
+        Uygulamayı indirerek, yükleyerek veya kullanarak, bilgilerin bu politikaya uygun olarak toplanmasını ve kullanılmasını kabul etmiş olursunuz.
       </p>
     </div>
 
     <div class="section-card">
-      <h2>2. Toplanan Bilgiler</h2>
-      <p>
-        Oyunu oynarken doğrudan kimliğinizi ortaya çıkaran (ad, soyad, fiziksel adres gibi) kişisel bilgileri talep etmiyoruz. Ancak, hizmeti sunabilmek ve geliştirebilmek için aşağıdaki veriler toplanabilir:
-      </p>
+      <h2>2. TOPLADIĞIMIZ BİLGİLER</h2>
+      <h3>2.1 Otomatik Olarak Toplanan Bilgiler</h3>
+      <p>Uygulamamızı kullandığınızda şunları otomatik olarak toplayabiliriz:</p>
       <ul>
-        <li><strong>Cihaz Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü, benzersiz cihaz tanımlayıcıları (Advertising ID vb.), dil ayarları ve IP adresi.</li>
-        <li><strong>Kullanım Verileri:</strong> Oyun içi ilerleme, skorlar, seviye tamamlama verileri, tıklama verileri ve çökme/hata raporları.</li>
+        <li><strong>Cihaz Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü, benzersiz cihaz tanımlayıcıları (iOS'ta Advertising ID/IDFA, Android'de Advertising ID/AAID dahil), dil ve bölge ayarları, ekran çözünürlüğü ve saat dilimi.</li>
+        <li><strong>Kullanım Verileri:</strong> Oyun ilerlemesi, bölüm tamamlamaları, skorlar, oyun içi para bakiyesi, oturum süresi, oynanış kalıpları, özellik kullanımı ve etkileşim verileri.</li>
+        <li><strong>Teknik Veriler:</strong> IP adresi (ülke düzeyinde konum için), çökme günlükleri (crash logs), hata raporları ve performans ölçümleri.</li>
+      </ul>
+
+      <h3>2.2 Toplamadığımız Bilgiler</h3>
+      <p>Adınız, e-posta adresiniz, telefon numaranız, fiziksel adresiniz veya ödeme kartı bilgileriniz gibi kişisel olarak tanımlanabilir bilgileri (PII) <strong>toplamıyoruz</strong>.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>3. REKLAM VE ÜÇÜNCÜ TARAF HİZMETLERİ</h2>
+      <h3>3.1 Reklam Ortakları</h3>
+      <p>Uygulamamızı ücretsiz tutabilmek için aşağıdaki ortaklar aracılığıyla reklamlar gösteriyoruz:</p>
+      <ul>
+        <li><strong>Google AdMob:</strong> Birincil reklam ağı</li>
+        <li><strong>Unity Ads:</strong> Video reklamlar için mediation ortağı</li>
+        <li><strong>Meta Audience Network (Facebook):</strong> Görüntülü reklamlar için mediation ortağı</li>
+      </ul>
+      <p>Bu ortaklar; reklam hedeflemesi amacıyla Reklam Kimliğiniz (Advertising ID), IP adresiniz, cihaz bilgileriniz ve genel konumunuz (ülke/bölge düzeyi) dahil olmak üzere belirli verileri toplayabilir ve kullanabilir.</p>
+
+      <h3>3.2 Analitik Hizmetleri</h3>
+      <p>Kullanıcıların Uygulamamızla nasıl etkileşime girdiğini anlamak için <strong>Firebase Analytics (Google)</strong> kullanıyoruz. Bu, oyun deneyimini geliştirmemize yardımcı olur. Firebase şunları toplayabilir:</p>
+      <ul>
+        <li>Anonim kullanım istatistikleri</li>
+        <li>Uygulama performans verileri</li>
+        <li>Özellik etkileşim ölçümleri</li>
+        <li>Çökme ve hata raporları</li>
+      </ul>
+
+      <h3>3.3 Oyun Hizmetleri</h3>
+      <p>Liderlik tablosu (Leaderboard) işlevselliği için şunlarla entegre çalışıyoruz:</p>
+      <ul>
+        <li>Google Play Games Services (Android)</li>
+        <li>Apple Game Center (iOS)</li>
+      </ul>
+      <p>Bu hizmetler, kendi gizlilik politikalarına göre oyun profilinizi, skorlarınızı ve başarılarınızı toplayabilir.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>4. UYGULAMA İÇİ SATIN ALIMLAR</h2>
+      <p>FluxCell, satın alınabilir sanal para birimleri ("Altın") sunar.</p>
+      <ul>
+        <li><strong>Ödeme İşlemleri:</strong> Tüm işlemler Apple App Store veya Google Play Store üzerinden güvenli bir şekilde gerçekleştirilir. Ödeme kartı bilgilerinizi asla almayız veya saklamayız.</li>
+        <li><strong>Satın Alma Doğrulaması:</strong> Satın alma işleminin orijinalliğini doğrulamak ve dolandırıcılığı önlemek için Firebase Cloud Functions kullanıyoruz.</li>
+        <li><strong>Sanal Öğeler:</strong> Satın alınan öğeler cihazınızda yerel olarak saklanır ve güvenli bir şekilde yedeklenir.</li>
       </ul>
     </div>
 
     <div class="section-card">
-      <h2>3. Reklamlar (Advertising)</h2>
-      <p>
-        FluxCell, oyunu kullanıcılara ücretsiz sunabilmek için üçüncü taraf reklam ortaklarıyla (örneğin Google AdMob, Unity Ads, AppLovin vb.) çalışmaktadır.
-      </p>
+      <h2>5. VERİ SAKLAMA VE GÜVENLİK</h2>
+      <h3>5.1 Yerel Depolama</h3>
+      <p>Oyun ilerlemeniz, ayarlarınız ve tercihleriniz cihazınızda yerel olarak şu yöntemlerle saklanır:</p>
       <ul>
-        <li><strong>Veri Kullanımı:</strong> Bu reklam sağlayıcıları, size ilgi alanlarınıza uygun kişiselleştirilmiş reklamlar sunmak amacıyla cihazınızın Reklam Kimliğini (IDFA veya AAID) ve genel konum verilerini kullanabilir.</li>
-        <li><strong>Kullanıcı Kontrolü:</strong> Mobil cihazınızın ayarlarından reklam takibini kısıtlayabilir veya reklam kimliğinizi sıfırlayabilirsiniz. Bu durumda reklam görmeye devam edersiniz, ancak bu reklamlar sizin ilgi alanlarınıza göre özelleştirilmez.</li>
+        <li><code>SharedPreferences</code> (standart cihaz depolama)</li>
+        <li><code>Flutter Secure Storage</code> (para bakiyesi gibi kritik veriler için şifreli depolama)</li>
       </ul>
+
+      <h3>5.2 Güvenlik Önlemleri</h3>
+      <p>Hassas oyun verileri için şifreli depolama, güvenli iletişim protokolleri (HTTPS) ve düzenli güvenlik güncellemeleri dahil olmak üzere endüstri standardı güvenlik önlemleri uyguluyoruz.</p>
     </div>
 
     <div class="section-card">
-      <h2>4. Uygulama İçi Satın Alımlar</h2>
-      <p>
-        FluxCell, oyun deneyimini zenginleştirmek için "Altın" gibi sanal para birimleri ve öğeler için satın alma imkanı sunar.
-      </p>
+      <h2>6. SEÇİMLERİNİZ VE HAKLARINIZ</h2>
+      <h3>6.1 Reklam Tercihleri</h3>
+      <p>Kişiselleştirilmiş reklamları kontrol edebilirsiniz:</p>
       <ul>
-        <li><strong>Ödeme İşlemleri:</strong> Tüm satın alma işlemleri, doğrudan uygulama mağazası sağlayıcınız (Google Play Store veya Apple App Store) üzerinden gerçekleştirilir.</li>
-        <li><strong>Finansal Bilgiler:</strong> Biz, kredi kartı numaranız, banka hesap bilgileriniz veya fatura detaylarınız gibi hassas finansal verilerinize erişmeyiz, bunları işlemeyiz ve saklamayız. Ödeme güvenliği tamamen ilgili mağaza platformunun sorumluluğundadır.</li>
-        <li><strong>İşlem Kayıtları:</strong> Sadece satın aldığınız sanal öğenin (örneğin 500 Altın) oyun hesabınıza tanımlanabilmesi için gerekli olan dijital makbuz verisini saklarız.</li>
+        <li><strong>iOS:</strong> Ayarlar → Gizlilik → Takip → "Uygulamaların Takip İzni İstemesine İzin Ver" seçeneğini kapatın</li>
+        <li><strong>Android:</strong> Ayarlar → Google → Reklamlar → Reklam kimliğini sıfırla veya Reklam Kişiselleştirmeyi Kapat</li>
       </ul>
+
+      <h3>6.2 Veri Silme</h3>
+      <p>Oyun verileri yerel olarak saklandığından, Uygulamayı kaldırmak tüm ilerlemenizi ve verilerinizi cihazınızdan silecektir.</p>
+
+      <h3>6.3 Analitikten Vazgeçme</h3>
+      <p>Cihaz gizlilik ayarlarınızı düzenleyerek analitik takibini sınırlayabilirsiniz.</p>
     </div>
 
     <div class="section-card">
-      <h2>5. Bilgilerin Kullanım Amacı</h2>
-      <p>Topladığımız bilgileri şu amaçlarla kullanırız:</p>
+      <h2>7. ÇOCUKLARIN GİZLİLİĞİ</h2>
+      <p>FluxCell genel izleyici kitlesine yöneliktir. Bilerek 13 yaşın (veya yargı alanınızdaki geçerli yaşın) altındaki çocuklardan kişisel bilgi toplamıyoruz.</p>
+      <p>İlgili yaşın altındaki bir çocuktan kişisel bilgi topladığımızı fark edersek, bu bilgileri silmek için gerekli adımları atacağız.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>8. ULUSLARARASI VERİ TRANSFERİ</h2>
+      <p>Bilgileriniz, ikamet ettiğiniz ülke dışındaki ülkelere aktarılabilir ve buralarda işlenebilir. Bu ülkeler farklı veri koruma yasalarına sahip olabilir.</p>
+      <p>Uygulamamızı kullanarak, bilgilerinizin ikamet ettiğiniz ülke dışındaki ülkelere aktarılmasını kabul etmiş olursunuz.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>9. ÜÇÜNCÜ TARAF LİNKLERİ</h2>
+      <p>Uygulamamız üçüncü taraf web sitelerine veya hizmetlere (mağaza puanlamaları gibi) bağlantılar içerebilir. Bu üçüncü tarafların gizlilik uygulamalarından sorumlu değiliz.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>10. BU POLİTİKADAKİ DEĞİŞİKLİKLER</h2>
+      <p>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Güncellenmiş sürüm, güncellenmiş "Son Güncelleme" tarihi ile belirtilecektir. Bu Politikayı periyodik olarak incelemenizi öneririz.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>11. İLETİŞİM</h2>
+      <p>Bu Gizlilik Politikası veya gizlilik uygulamalarımız hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
+      <p><strong>BuSa Hub Studio</strong></p>
       <ul>
-        <li>Oyunu çalıştırmak, hataları düzeltmek ve teknik sorunları gidermek.</li>
-        <li>Oyun içi ilerlemenizi (seviye, altın, ayarlar) cihazınızda saklamak.</li>
-        <li>Hile yapılmasını önlemek ve oyun güvenliğini sağlamak.</li>
-        <li>Anonim istatistikler oluşturarak oyun deneyimini iyileştirmek.</li>
-        <li>Yasal yükümlülüklere uymak.</li>
+        <li>E-posta: support@busahub.com</li>
+        <li>Web Sitesi: <a href="https://www.busahub.com/fluxcell/support.html" style="color: #00ffff;">https://www.busahub.com/fluxcell/support.html</a></li>
       </ul>
-    </div>
-
-    <div class="section-card">
-      <h2>6. Veri Güvenliği</h2>
-      <p>
-        Kişisel verilerinizin güvenliğini sağlamak için endüstri standardı teknik ve idari tedbirler alıyoruz. Ancak, internet üzerinden yapılan hiçbir veri iletiminin veya elektronik depolama yönteminin %100 güvenli olmadığını, bu nedenle mutlak güvenliği garanti edemeyeceğimizi hatırlatırız.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>7. Çocukların Gizliliği</h2>
-      <p>
-        FluxCell, bilerek 13 yaşın altındaki çocuklardan kişisel bilgi toplamaz. Eğer bir ebeveyn veya vasi iseniz ve çocuğunuzun bize kişisel bilgi sağladığını fark ederseniz, lütfen bizimle iletişime geçin. Söz konusu bilgileri sistemlerimizden derhal sileriz.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>8. Politika Değişiklikleri</h2>
-      <p>
-        Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Herhangi bir değişiklik yaptığımızda, "Son Güncelleme" tarihini yenileyerek bu sayfada yayınlayacağız. Önemli değişiklikler olması durumunda oyun içinden bildirim gönderebiliriz.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>9. İletişim</h2>
-      <p>
-        Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz veya öneriniz varsa, destek bölümünden iletişime geçebilirsiniz.
-      </p>
     </div>
   `,
       en: `
     <div class="section-card">
-      <p><strong>Last Updated: December 28, 2025</strong></p>
+      <p><strong>Last Updated: January 2025</strong></p>
     </div>
 
     <div class="section-card">
-      <h2>1. Introduction</h2>
+      <h2>1. INTRODUCTION</h2>
       <p>
-        As BuSa Hub Studio ("we", "us", or "our"), we attach great importance to the privacy and security of our players who use the FluxCell game ("Service"). This Privacy Policy explains how your information is collected, used, and shared when you use our Service.
+        BuSa Hub Studio ("Company", "we", "us", or "our") operates the FluxCell mobile application ("App" or "Service"). This Privacy Policy explains how your information is collected, used, disclosed, and protected when you use our App.
+      </p>
+      <p>
+        By downloading, installing, or using the App, you agree to the collection and use of information in accordance with this policy.
       </p>
     </div>
 
     <div class="section-card">
-      <h2>2. Collected Information</h2>
-      <p>
-        We do not request personal information that directly reveals your identity (such as name, surname, physical address) while playing the game. However, to provide and improve the service, the following data may be collected:
-      </p>
+      <h2>2. INFORMATION WE COLLECT</h2>
+      <h3>2.1 Automatically Collected Information</h3>
+      <p>When you use our App, we may automatically collect the following:</p>
       <ul>
-        <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers (Advertising ID, etc.), language settings, and IP address.</li>
-        <li><strong>Usage Data:</strong> In-game progress, scores, level completion data, click data, and crash/error reports.</li>
+        <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers (including Advertising ID/IDFA on iOS, Advertising ID/AAID on Android), language and region settings, screen resolution, and time zone.</li>
+        <li><strong>Usage Data:</strong> Game progress, level completions, scores, in-game currency balance, session duration, gameplay patterns, feature usage, and interaction data.</li>
+        <li><strong>Technical Data:</strong> IP address (for country-level location), crash logs, error reports, and performance metrics.</li>
+      </ul>
+
+      <h3>2.2 Information We Do Not Collect</h3>
+      <p>We do <strong>not</strong> collect personally identifiable information (PII) such as your name, email address, phone number, physical address, or payment card information.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>3. ADVERTISING AND THIRD-PARTY SERVICES</h2>
+      <h3>3.1 Advertising Partners</h3>
+      <p>To keep our App free, we display advertisements through the following partners:</p>
+      <ul>
+        <li><strong>Google AdMob:</strong> Primary ad network</li>
+        <li><strong>Unity Ads:</strong> Mediation partner for video ads</li>
+        <li><strong>Meta Audience Network (Facebook):</strong> Mediation partner for display ads</li>
+      </ul>
+      <p>These partners may collect and use certain data, including your Advertising ID, IP address, device information, and general location (country/region level), for ad targeting purposes.</p>
+
+      <h3>3.2 Analytics Services</h3>
+      <p>We use <strong>Firebase Analytics (Google)</strong> to understand how users interact with our App. This helps us improve the gaming experience. Firebase may collect:</p>
+      <ul>
+        <li>Anonymous usage statistics</li>
+        <li>App performance data</li>
+        <li>Feature interaction metrics</li>
+        <li>Crash and error reports</li>
+      </ul>
+
+      <h3>3.3 Game Services</h3>
+      <p>For Leaderboard functionality, we integrate with:</p>
+      <ul>
+        <li>Google Play Games Services (Android)</li>
+        <li>Apple Game Center (iOS)</li>
+      </ul>
+      <p>These services may collect your game profile, scores, and achievements according to their own privacy policies.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>4. IN-APP PURCHASES</h2>
+      <p>FluxCell offers purchasable virtual currencies ("Gold").</p>
+      <ul>
+        <li><strong>Payment Transactions:</strong> All transactions are securely processed through the Apple App Store or Google Play Store. We never receive or store your payment card information.</li>
+        <li><strong>Purchase Verification:</strong> We use Firebase Cloud Functions to verify the authenticity of purchases and prevent fraud.</li>
+        <li><strong>Virtual Items:</strong> Purchased items are stored locally on your device and securely backed up.</li>
       </ul>
     </div>
 
     <div class="section-card">
-      <h2>3. Advertising</h2>
-      <p>
-        FluxCell works with third-party advertising partners (e.g., Google AdMob, Unity Ads, AppLovin, etc.) to offer the game to users for free.
-      </p>
+      <h2>5. DATA RETENTION AND SECURITY</h2>
+      <h3>5.1 Local Storage</h3>
+      <p>Your game progress, settings, and preferences are stored locally on your device via:</p>
       <ul>
-        <li><strong>Data Usage:</strong> These ad providers may use your device's Advertising ID (IDFA or AAID) and general location data to provide personalized ads tailored to your interests.</li>
-        <li><strong>User Control:</strong> You can restrict ad tracking or reset your advertising ID from your mobile device settings. In this case, you will still see ads, but they will not be customized to your interests.</li>
+        <li><code>SharedPreferences</code> (standard device storage)</li>
+        <li><code>Flutter Secure Storage</code> (encrypted storage for critical data like currency balance)</li>
       </ul>
+
+      <h3>5.2 Security Measures</h3>
+      <p>We implement industry-standard security measures for sensitive game data, including encrypted storage, secure communication protocols (HTTPS), and regular security updates.</p>
     </div>
 
     <div class="section-card">
-      <h2>4. In-App Purchases</h2>
-      <p>
-        FluxCell offers the ability to purchase virtual currencies like "Gold" and items to enrich the gaming experience.
-      </p>
+      <h2>6. YOUR CHOICES AND RIGHTS</h2>
+      <h3>6.1 Advertising Preferences</h3>
+      <p>You can control personalized ads:</p>
       <ul>
-        <li><strong>Payment Transactions:</strong> All purchases are processed directly through your app store provider (Google Play Store or Apple App Store).</li>
-        <li><strong>Financial Information:</strong> We do not access, process, or store your sensitive financial data such as credit card numbers, bank account details, or billing details. Payment security is entirely the responsibility of the respective store platform.</li>
-        <li><strong>Transaction Records:</strong> We only store the digital receipt data necessary to define the virtual item you purchased (e.g., 500 Gold) to your game account.</li>
+        <li><strong>iOS:</strong> Settings → Privacy → Tracking → Toggle off "Allow Apps to Request to Track"</li>
+        <li><strong>Android:</strong> Settings → Google → Ads → Reset advertising ID or Delete advertising ID</li>
       </ul>
+
+      <h3>6.2 Data Deletion</h3>
+      <p>Since game data is stored locally, uninstalling the App will delete all your progress and data from your device.</p>
+
+      <h3>6.3 Opting Out of Analytics</h3>
+      <p>You can limit analytics tracking by adjusting your device privacy settings.</p>
     </div>
 
     <div class="section-card">
-      <h2>5. Purpose of Information Usage</h2>
-      <p>We use the information we collect for the following purposes:</p>
+      <h2>7. CHILDREN'S PRIVACY</h2>
+      <p>FluxCell is intended for a general audience. We do not knowingly collect personal information from children under 13 (or the applicable age in your jurisdiction).</p>
+      <p>If we become aware that we have collected personal information from a child under the relevant age, we will take steps to delete that information.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>8. INTERNATIONAL DATA TRANSFERS</h2>
+      <p>Your information may be transferred to and maintained on computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ.</p>
+      <p>By using our App, you consent to the transfer of your information to countries outside your country of residence.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>9. THIRD-PARTY LINKS</h2>
+      <p>Our App may contain links to third-party websites or services (such as store ratings). We are not responsible for the privacy practices of these third parties.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>10. CHANGES TO THIS POLICY</h2>
+      <p>We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last Updated" date. We encourage you to review this Policy periodically.</p>
+    </div>
+
+    <div class="section-card">
+      <h2>11. CONTACT</h2>
+      <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us:</p>
+      <p><strong>BuSa Hub Studio</strong></p>
       <ul>
-        <li>To operate the game, fix bugs, and troubleshoot technical issues.</li>
-        <li>To store your in-game progress (level, gold, settings) on your device.</li>
-        <li>To prevent cheating and ensure game security.</li>
-        <li>To improve the gaming experience by creating anonymous statistics.</li>
-        <li>To comply with legal obligations.</li>
+        <li>Email: support@busahub.com</li>
+        <li>Website: <a href="https://www.busahub.com/fluxcell/support.html" style="color: #00ffff;">https://www.busahub.com/fluxcell/support.html</a></li>
       </ul>
-    </div>
-
-    <div class="section-card">
-      <h2>6. Data Security</h2>
-      <p>
-        We take industry-standard technical and administrative measures to ensure the security of your personal data. However, please remember that no method of transmission over the internet or method of electronic storage is 100% secure, and therefore we cannot guarantee absolute security.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>7. Children's Privacy</h2>
-      <p>
-        FluxCell does not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and realize that your child has provided us with personal information, please contact us. We delete such information from our systems immediately.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>8. Policy Changes</h2>
-      <p>
-        We may update this Privacy Policy from time to time. When we make any changes, we will post them on this page by renewing the "Last Updated" date. We may send notifications within the game in case of significant changes.
-      </p>
-    </div>
-
-    <div class="section-card">
-      <h2>9. Contact</h2>
-      <p>
-        If you have any questions or suggestions regarding this Privacy Policy, you can contact us via the support section.
-      </p>
     </div>
   `
     };
