@@ -172,6 +172,62 @@
         .back-link:hover {
             color: #00ffff;
         }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid #333;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: normal;
+            color: #e0e0e0;
+        }
+
+        .radio-option:hover {
+            border-color: #00ffff;
+            background: rgba(0, 255, 255, 0.1);
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+            accent-color: #00ffff;
+        }
+
+        .radio-option span {
+            flex: 1;
+        }
+
+        .form-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 
@@ -203,18 +259,71 @@
             tr: `
       <div class="section-card">
         <h2>Destek Talebi Gönder</h2>
-        <p>Sorularınız veya geri bildirimleriniz için formu doldurun.</p>
+        <p>Lütfen yapmak istediğiniz işlemi seçin.</p>
         <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
-          <label for="name">Adınız *</label>
-          <input type="text" id="name" name="entry.413142590" required placeholder="Adınız Soyadınız">
+          
+          <label>Hangi İşlemi Yapmak İstiyorsunuz? *</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Kullanıcı Veri Silme" required onchange="showSection('delete')">
+              <span>Kullanıcı Veri Silme</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Şikayet" onchange="showSection('complaint')">
+              <span>Şikayet</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Öneri" onchange="showSection('suggestion')">
+              <span>Öneri</span>
+            </label>
+          </div>
 
-          <label for="email">E-posta Adresiniz *</label>
-          <input type="email" id="email" name="entry.357724947" required placeholder="ornek@email.com">
+          <!-- Kullanıcı Veri Silme Bölümü -->
+          <div id="section-delete" class="form-section" style="display:none;">
+            <label for="delete-email">E-Posta *</label>
+            <input type="email" id="delete-email" name="entry.434431260" placeholder="ornek@email.com">
 
-          <label for="message">Mesajınız *</label>
-          <textarea id="message" name="entry.533240552" rows="6" required placeholder="Mesajınızı buraya yazın..."></textarea>
+            <label for="delete-userid">Kullanıcı ID / Oyun ID *</label>
+            <input type="text" id="delete-userid" name="entry.1575915395" placeholder="Kullanıcı veya Oyun ID'nizi girin">
 
-          <button type="submit" class="submit-btn">Gönder</button>
+            <label>Cihaz Türü</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="entry.5375224" value="Android">
+                <span>Android</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="entry.5375224" value="iOS">
+                <span>iOS</span>
+              </label>
+            </div>
+
+            <label for="delete-date">Kayıt Tarihi</label>
+            <input type="date" id="delete-date" name="entry.538510005">
+          </div>
+
+          <!-- Şikayet Bölümü -->
+          <div id="section-complaint" class="form-section" style="display:none;">
+            <label for="complaint-email">E-posta Adresi *</label>
+            <input type="email" id="complaint-email" name="entry.1836174133" placeholder="ornek@email.com">
+
+            <label for="complaint-subject">Şikayet Konusu *</label>
+            <input type="text" id="complaint-subject" name="entry.1868280193" placeholder="Şikayet konunuzu kısaca yazın">
+
+            <label for="complaint-detail">Detaylı Açıklama (Opsiyonel)</label>
+            <textarea id="complaint-detail" name="entry.2023914530" rows="5" placeholder="Şikayetinizi detaylı açıklayın..."></textarea>
+          </div>
+
+          <!-- Öneri Bölümü -->
+          <div id="section-suggestion" class="form-section" style="display:none;">
+            <label for="suggestion-email">E-posta Adresi *</label>
+            <input type="email" id="suggestion-email" name="entry.1733357479" placeholder="ornek@email.com">
+
+            <label for="suggestion-text">Öneriniz *</label>
+            <textarea id="suggestion-text" name="entry.1266195283" rows="6" placeholder="Önerinizi buraya yazın..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn" style="display:none;">Gönder</button>
           <div id="formMessage" class="form-message" style="display:none;"></div>
         </form>
         <iframe name="hidden_iframe" style="display:none;"></iframe>
@@ -223,18 +332,71 @@
             en: `
       <div class="section-card">
         <h2>Send Support Request</h2>
-        <p>Fill out the form with your questions or feedback.</p>
+        <p>Please select the type of request you want to make.</p>
         <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" name="entry.413142590" required placeholder="Your Full Name">
+          
+          <label>What Would You Like To Do? *</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Kullanıcı Veri Silme" required onchange="showSection('delete')">
+              <span>User Data Deletion</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Şikayet" onchange="showSection('complaint')">
+              <span>Complaint</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="entry.1462216245" value="Öneri" onchange="showSection('suggestion')">
+              <span>Suggestion</span>
+            </label>
+          </div>
 
-          <label for="email">Your Email *</label>
-          <input type="email" id="email" name="entry.357724947" required placeholder="example@email.com">
+          <!-- User Data Deletion Section -->
+          <div id="section-delete" class="form-section" style="display:none;">
+            <label for="delete-email">Email *</label>
+            <input type="email" id="delete-email" name="entry.434431260" placeholder="example@email.com">
 
-          <label for="message">Your Message *</label>
-          <textarea id="message" name="entry.533240552" rows="6" required placeholder="Write your message here..."></textarea>
+            <label for="delete-userid">User ID / Game ID *</label>
+            <input type="text" id="delete-userid" name="entry.1575915395" placeholder="Enter your User or Game ID">
 
-          <button type="submit" class="submit-btn">Send</button>
+            <label>Device Type</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="entry.5375224" value="Android">
+                <span>Android</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="entry.5375224" value="iOS">
+                <span>iOS</span>
+              </label>
+            </div>
+
+            <label for="delete-date">Registration Date</label>
+            <input type="date" id="delete-date" name="entry.538510005">
+          </div>
+
+          <!-- Complaint Section -->
+          <div id="section-complaint" class="form-section" style="display:none;">
+            <label for="complaint-email">Email Address *</label>
+            <input type="email" id="complaint-email" name="entry.1836174133" placeholder="example@email.com">
+
+            <label for="complaint-subject">Complaint Subject *</label>
+            <input type="text" id="complaint-subject" name="entry.1868280193" placeholder="Briefly describe your complaint">
+
+            <label for="complaint-detail">Detailed Description (Optional)</label>
+            <textarea id="complaint-detail" name="entry.2023914530" rows="5" placeholder="Describe your complaint in detail..."></textarea>
+          </div>
+
+          <!-- Suggestion Section -->
+          <div id="section-suggestion" class="form-section" style="display:none;">
+            <label for="suggestion-email">Email Address *</label>
+            <input type="email" id="suggestion-email" name="entry.1733357479" placeholder="example@email.com">
+
+            <label for="suggestion-text">Your Suggestion *</label>
+            <textarea id="suggestion-text" name="entry.1266195283" rows="6" placeholder="Write your suggestion here..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn" style="display:none;">Send</button>
           <div id="formMessage" class="form-message" style="display:none;"></div>
         </form>
         <iframe name="hidden_iframe" style="display:none;"></iframe>
@@ -242,7 +404,42 @@
     `
         };
 
+        let currentLang = 'en';
+
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.form-section').forEach(el => {
+                el.style.display = 'none';
+                // Remove required from hidden inputs
+                el.querySelectorAll('input, textarea').forEach(input => {
+                    input.removeAttribute('required');
+                });
+            });
+
+            // Show selected section
+            const selectedSection = document.getElementById('section-' + section);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+
+                // Set required attributes based on section
+                if (section === 'delete') {
+                    document.getElementById('delete-email').setAttribute('required', '');
+                    document.getElementById('delete-userid').setAttribute('required', '');
+                } else if (section === 'complaint') {
+                    document.getElementById('complaint-email').setAttribute('required', '');
+                    document.getElementById('complaint-subject').setAttribute('required', '');
+                } else if (section === 'suggestion') {
+                    document.getElementById('suggestion-email').setAttribute('required', '');
+                    document.getElementById('suggestion-text').setAttribute('required', '');
+                }
+            }
+
+            // Show submit button
+            document.getElementById('submitBtn').style.display = 'block';
+        }
+
         function setLang(lang) {
+            currentLang = lang;
             document.getElementById("content").innerHTML = data[lang];
 
             const heading = document.getElementById("main-title");
@@ -258,15 +455,17 @@
             if (form) {
                 form.addEventListener('submit', function () {
                     const formMessage = document.getElementById('formMessage');
-                    const submitBtn = form.querySelector('.submit-btn');
 
                     setTimeout(function () {
                         formMessage.textContent = lang === 'tr' ?
-                            'Mesajınız başarıyla gönderildi! Teşekkür ederiz.' :
-                            'Your message has been sent successfully! Thank you.';
+                            'Talebiniz başarıyla gönderildi! Teşekkür ederiz.' :
+                            'Your request has been sent successfully! Thank you.';
                         formMessage.className = 'form-message success';
                         formMessage.style.display = 'block';
                         form.reset();
+                        // Hide sections after reset
+                        document.querySelectorAll('.form-section').forEach(el => el.style.display = 'none');
+                        document.getElementById('submitBtn').style.display = 'none';
                     }, 1000);
                 });
             }
