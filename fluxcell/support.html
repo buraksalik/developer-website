@@ -260,7 +260,7 @@
       <div class="section-card">
         <h2>Destek Talebi Gönder</h2>
         <p>Lütfen yapmak istediğiniz işlemi seçin.</p>
-        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
+        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST">
           <!-- Google Form Page Logic -->
           <input type="hidden" name="pageHistory" id="pageHistory" value="0">
           <input type="hidden" name="fvv" value="1">
@@ -334,14 +334,14 @@
           <button type="submit" class="submit-btn" id="submitBtn" style="display:none;">Gönder</button>
           <div id="formMessage" class="form-message" style="display:none;"></div>
         </form>
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
       </div>
     `,
             en: `
       <div class="section-card">
         <h2>Send Support Request</h2>
         <p>Please select the type of request you want to make.</p>
-        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST" target="hidden_iframe">
+        <form id="supportForm" class="custom-form" action="https://docs.google.com/forms/d/e/1FAIpQLSe4z1TkJx_bNBdni5HZyrBEWaPV2-xcavglMQOsujcnc-uXvw/formResponse" method="POST">
           <!-- Google Form Page Logic -->
           <input type="hidden" name="pageHistory" id="pageHistory" value="0">
           <input type="hidden" name="fvv" value="1">
@@ -415,7 +415,7 @@
           <button type="submit" class="submit-btn" id="submitBtn" style="display:none;">Send</button>
           <div id="formMessage" class="form-message" style="display:none;"></div>
         </form>
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
+
       </div>
     `
         };
@@ -506,20 +506,45 @@
             // Attach form submit handler
             const form = document.getElementById('supportForm');
             if (form) {
-                form.addEventListener('submit', function () {
-                    const formMessage = document.getElementById('formMessage');
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Prevent default form submission
 
-                    setTimeout(function () {
-                        formMessage.textContent = lang === 'tr' ?
-                            'Talebiniz başarıyla gönderildi! Teşekkür ederiz.' :
-                            'Your request has been sent successfully! Thank you.';
-                        formMessage.className = 'form-message success';
-                        formMessage.style.display = 'block';
-                        form.reset();
-                        // Hide sections after reset
-                        document.querySelectorAll('.form-section').forEach(el => el.style.display = 'none');
-                        document.getElementById('submitBtn').style.display = 'none';
-                    }, 1000);
+                    const formMessage = document.getElementById('formMessage');
+                    const submitBtn = document.getElementById('submitBtn');
+
+                    // Disable button to prevent double submit
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = (lang === 'tr') ? 'Gönderiliyor...' : 'Sending...';
+
+                    const formData = new FormData(form);
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        mode: 'no-cors', // Important for Google Forms
+                        body: formData
+                    })
+                        .then(() => {
+                            // Google Forms returns an opaque response in no-cors mode, so we assume success if no network error
+                            formMessage.textContent = lang === 'tr' ?
+                                'Talebiniz başarıyla gönderildi! Teşekkür ederiz.' :
+                                'Your request has been sent successfully! Thank you.';
+                            formMessage.className = 'form-message success';
+                            formMessage.style.display = 'block';
+                            form.reset();
+                            // Hide sections after reset
+                            document.querySelectorAll('.form-section').forEach(el => el.style.display = 'none');
+                            submitBtn.style.display = 'none';
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            formMessage.textContent = lang === 'tr' ?
+                                'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.' :
+                                'An error occurred. Please try again later.';
+                            formMessage.className = 'form-message error';
+                            formMessage.style.display = 'block';
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = (lang === 'tr') ? 'Gönder' : 'Send';
+                        });
                 });
             }
         }
