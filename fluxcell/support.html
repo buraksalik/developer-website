@@ -423,12 +423,16 @@
         let currentLang = 'en';
 
         function showSection(section) {
-            // Hide all sections
+            // Hide all sections and disable their inputs to prevent sending empty required fields
             document.querySelectorAll('.form-section').forEach(el => {
                 el.style.display = 'none';
-                // Remove required from hidden inputs
                 el.querySelectorAll('input, textarea').forEach(input => {
                     input.removeAttribute('required');
+                    // Store the name in a data attribute and remove it from the actual name attribute
+                    if (input.name && input.name.startsWith('entry.')) {
+                        input.setAttribute('data-name', input.name);
+                        input.removeAttribute('name');
+                    }
                 });
             });
 
@@ -439,8 +443,13 @@
             if (selectedSection) {
                 selectedSection.style.display = 'block';
 
-                // Set required attributes and page history based on section
-                // Page 0 (Selection) -> Section 1 (Veri Silme) -> 2 (Şikayet) -> 3 (Öneri)
+                // Restore names and set required for active section
+                selectedSection.querySelectorAll('input, textarea').forEach(input => {
+                    if (input.getAttribute('data-name')) {
+                        input.setAttribute('name', input.getAttribute('data-name'));
+                    }
+                });
+
                 if (section === 'delete') {
                     document.getElementById('delete-email').setAttribute('required', '');
                     document.getElementById('delete-userid').setAttribute('required', '');
