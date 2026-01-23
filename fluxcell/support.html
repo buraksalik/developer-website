@@ -302,7 +302,11 @@
             </div>
 
             <label for="delete-date">Kayıt Tarihi</label>
-            <input type="date" id="delete-date" name="entry.538510005">
+            <input type="date" id="delete-date" onchange="updateDateEntries(this.value)">
+            <!-- Hidden Date Entries for Google Form -->
+            <input type="hidden" name="entry.538510005_year" id="date-year">
+            <input type="hidden" name="entry.538510005_month" id="date-month">
+            <input type="hidden" name="entry.538510005_day" id="date-day">
           </div>
 
           <!-- Şikayet Bölümü -->
@@ -378,7 +382,11 @@
             </div>
 
             <label for="delete-date">Registration Date</label>
-            <input type="date" id="delete-date" name="entry.538510005">
+            <input type="date" id="delete-date-en" onchange="updateDateEntries(this.value)">
+            <!-- Hidden Date Entries for Google Form -->
+            <input type="hidden" name="entry.538510005_year" id="date-year-en">
+            <input type="hidden" name="entry.538510005_month" id="date-month-en">
+            <input type="hidden" name="entry.538510005_day" id="date-day-en">
           </div>
 
           <!-- Complaint Section -->
@@ -448,6 +456,28 @@
 
             // Show submit button
             document.getElementById('submitBtn').style.display = 'block';
+        }
+
+        function updateDateEntries(dateVal) {
+            if (!dateVal) return;
+            const parts = dateVal.split('-'); // YYYY-MM-DD
+            if (parts.length === 3) {
+                // Turkish fields
+                const y = document.getElementById('date-year');
+                const m = document.getElementById('date-month');
+                const d = document.getElementById('date-day');
+                if (y) y.value = parts[0];
+                if (m) m.value = parts[1];
+                if (d) d.value = parts[2];
+
+                // English fields (if they exist in DOM)
+                const yEn = document.getElementById('date-year-en');
+                const mEn = document.getElementById('date-month-en');
+                const dEn = document.getElementById('date-day-en');
+                if (yEn) yEn.value = parts[0];
+                if (mEn) mEn.value = parts[1];
+                if (dEn) dEn.value = parts[2];
+            }
         }
 
         function setLang(lang) {
